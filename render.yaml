@@ -1,0 +1,38 @@
+# Render Blueprint — optional. If your repo root has this file, Render's
+# "New +" → "Blueprint" flow reads it and pre-fills the service instead of
+# you clicking through "New Web Service" by hand. Either way works; env var
+# values themselves still have to be typed into the Render dashboard (never
+# commit real secrets here).
+
+services:
+  - type: web
+    name: whatsapp-koko-chatbot
+    runtime: node
+    plan: starter # bump from "free" once this is a real customer-facing number — see README on cold starts
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: AUTO_REPLY_SHARED_SECRET
+        sync: false
+      - key: WHATSAPP_ACCESS_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+      - key: WHATSAPP_WEBHOOK_VERIFY_TOKEN
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: SMTP_FROM
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
