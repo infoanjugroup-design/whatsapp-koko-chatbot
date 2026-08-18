@@ -1,0 +1,19 @@
+{
+  "name": "whatsapp-koko-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone WhatsApp chatbot service for koko — runs the same rule-based engine (register/login/claim/balance/payout) as the koko website chatbot, over WhatsApp. Talks to the same Supabase project as the main koko-website app.",
+  "type": "module",
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.14"
+  }
+}
